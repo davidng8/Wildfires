@@ -9,7 +9,7 @@ We are going to be using a geo-narrative to display wildfire data and the change
 ## Map Projection 
   - Mercator projection 
   - Center: State of Washington
-  - Zoom level: 10
+  - Zoom level: 8
 ## Base Map
   - Monochrome base map of Washington State
 ## Description of Thematic Layers 
