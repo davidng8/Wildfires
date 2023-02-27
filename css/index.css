@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header, .header, .header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  position: relative;
+}
+
+.header {
+  background-image: linear-gradient(rgba(87, 60, 250,1), 70%, rgba(87, 60, 250, 0));
+}
+
+.header, .header-container {
+  height: 180px;
+}
+
+.header-container {
+  width: auto;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.header, #main, #map, html {
+  width: 100%;
+  height: 100%;
+}
+
+.fire-icon {
+  margin-right: 20px;
+}
