@@ -14,6 +14,7 @@ map = new mapboxgl.Map({
   projection: 'albers'
 });
 
+// Large fires data set
 map.on('load', () => {
   // County Borders
   map.addSource('fires', {
@@ -21,6 +22,7 @@ map.on('load', () => {
     data: 'assets/Washington_Large_Fires_1973-2020.geojson'
   })
 
+  // Fire map
   map.addLayer({
     'id': 'fire-polies',
     'type': 'fill',
@@ -33,7 +35,7 @@ map.on('load', () => {
 });
 
 /*------------------------------Helper functions------------------------------*/
-
+// Get id shortcut.
 function id(query){
   return document.getElementById(query);
 }
