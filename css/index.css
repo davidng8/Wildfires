@@ -16,7 +16,7 @@ header, .header, .header-container {
 }
 
 .header, .header-container {
-  height: 180px;
+  height: 150px;
 }
 
 .header-container {
@@ -42,3 +42,61 @@ h1 {
 .fire-icon {
   margin-right: 20px;
 }
+
+#left-bar{
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 80%;
+  width: 30%;
+  margin-left: 3%;
+}
+
+#story, #legend {
+  display: flex;
+  width: 100%;
+  background-color: white;
+  opacity: 0.8;
+  border-radius: 2%;
+}
+
+#story {
+  height: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+
+#legend {
+  margin-top: 20px;
+  height: 25%;
+}
+
+.story-head, .story-text {
+
+
+  width: 100%;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+/*------------------------------Custom Scrollbar------------------------------*/
+::-webkit-scrollbar {
+  width: 7px;
+  padding-top: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px white;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 10px;
+}
+/*----------------------------------------------------------------------------*/

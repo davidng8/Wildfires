@@ -4,6 +4,16 @@ Contributors: group AB5
 Edited by Frost
 */
 
+const BURNED_ACRES = [1, 10, 100];
+      BA_COLORS = ['rgb(255,247,188)','rgb(254,196,79)','rgb(217,95,14)'];
+      BA_RADII = [5, 15, 30];
+
+// Add scroll event listener
+id("story").addEventListener("scroll", () => {
+  console.log('ok')
+});
+
+// Setup mapbox basemap
 mapboxgl.accessToken =
   'pk.eyJ1IjoiZnJvc3R5Y3MiLCJhIjoiY2xlbTluMXJ2MHp1dzN4bWxlcmRqcGM2eCJ9.e2bM-nuMkNqXTGDvasGjyQ';
 map = new mapboxgl.Map({
@@ -14,28 +24,67 @@ map = new mapboxgl.Map({
   projection: 'albers'
 });
 
+// Construct Layers
+let large_fires = {
+  'id': 'lg-fire-polies',
+  'type': 'fill',
+  'source': 'large-fires',
+  'paint': {
+    'fill-color': '#fc5603',
+    'fill-opacity': 0.4
+  }
+};
+
+let pre_07 = {
+  'id': 'fires-pre-07',
+  'type': 'circle',
+  'source': 'dnr-90-07',
+  'paint': {
+    'circle-radius': {
+      'property': 'ACRES_BURNED',
+      'stops': [
+        [BURNED_ACRES[0], BA_RADII[0]],
+        [BURNED_ACRES[1], BA_RADII[1]],
+        [BURNED_ACRES[2], BA_RADII[2]]
+      ]
+    },
+    'circle-color': {
+      'property': 'ACRES_BURNED',
+      'stops': [
+        [BURNED_ACRES[0], BA_COLORS[0]],
+      [BURNED_ACRES[1], BA_COLORS[1]],
+      [BURNED_ACRES[2], BA_COLORS[2]]
+      ]
+    },
+    'circle-stroke-color': 'black',
+    'circle-stroke-width': 1,
+    'circle-opacity': 0.6
+  }
+}
+
 // Large fires data set
 map.on('load', () => {
-  // County Borders
-  map.addSource('fires', {
+  map.addSource('large-fires', {
     type: 'geojson',
     data: 'assets/Washington_Large_Fires_1973-2020.geojson'
   })
 
-  // Fire map
-  map.addLayer({
-    'id': 'fire-polies',
-    'type': 'fill',
-    'source': 'fires',
-    'paint': {
-      'fill-color': '#fc5603',
-      'fill-opacity': 0.4
-      }
+  map.addSource('dnr-90-07', {
+    type: 'geojson',
+    data: 'assets/DNR_Fire_Statistics_1970-2007.geojson'
   })
+
+  map.addSource('dnr-08-pre', {
+    type: 'geojson',
+    data: 'assets/DNR_Fire_Statistics_2008_-_Present.geojson'
+  })
+
+  // Default large fires map
+  map.addLayer(large_fires)
 });
 
 /*------------------------------Helper functions------------------------------*/
 // Get id shortcut.
-function id(query){
-  return document.getElementById(query);
+function id(idName) {
+  return document.getElementById(idName);
 }
