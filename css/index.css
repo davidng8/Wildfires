@@ -70,6 +70,14 @@ h1 {
   overflow-x: 0;
 }
 
+.story-sec {
+  width: 100%;
+}
+
+.story-text {
+  font-size: 20pt;
+}
+
 #legend {
   margin-top: 20px;
   height: 25%;
@@ -99,10 +107,13 @@ h1 {
 }
 
 #map-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
   position: absolute;
-  max-width: 120px;
+  max-width: 270px;
   max-height: 180px;
-  margin-left: 90%;
+  margin-left: 85%;
 }
 
 /*slider*/
