@@ -4,13 +4,14 @@ Contributors: group AB5
 Edited by Frost
 */
 
+// Circle radii for the acres burned map.
 const BURNED_ACRES = [1, 10, 100];
       BA_COLORS = ['rgb(255,247,188)','rgb(254,196,79)','rgb(217,95,14)'];
       BA_RADII = [5, 15, 30];
 
 // Add scroll event listener
 id("story").addEventListener("scroll", () => {
-  console.log('ok')
+  console.log('ok');
 });
 
 // Setup mapbox basemap
@@ -25,20 +26,29 @@ map = new mapboxgl.Map({
 });
 
 // Construct Layers
+// Large Fires layer
 let large_fires = {
   'id': 'lg-fire-polies',
   'type': 'fill',
   'source': 'large-fires',
+  'layout': {
+    // Make the layer visible by default.
+    'visibility': 'visible'
+  },
   'paint': {
     'fill-color': '#fc5603',
     'fill-opacity': 0.4
   }
 };
 
+// Acres Burned before 2007.
 let pre_07 = {
   'id': 'fires-pre-07',
   'type': 'circle',
   'source': 'dnr-90-07',
+  'layout': {
+    'visibility': 'none'
+  },
   'paint': {
     'circle-radius': {
       'property': 'ACRES_BURNED',
@@ -67,20 +77,40 @@ map.on('load', () => {
   map.addSource('large-fires', {
     type: 'geojson',
     data: 'assets/Washington_Large_Fires_1973-2020.geojson'
-  })
+  });
 
   map.addSource('dnr-90-07', {
     type: 'geojson',
     data: 'assets/DNR_Fire_Statistics_1970-2007.geojson'
-  })
+  });
 
   map.addSource('dnr-08-pre', {
     type: 'geojson',
     data: 'assets/DNR_Fire_Statistics_2008_-_Present.geojson'
-  })
+  });
 
   // Default large fires map
-  map.addLayer(large_fires)
+  map.addLayer(large_fires);
+  map.addLayer(pre_07);
+});
+
+//------------------------------------------------------------------------------
+// Map 1 toggle on/off
+id("check1").addEventListener("change", (e) => {
+  if (e.target.checked) {
+    map.setLayoutProperty('lg-fire-polies', 'visibility', 'visible');
+  } else {
+    map.setLayoutProperty('lg-fire-polies', 'visibility', 'none');
+  }
+});
+
+// Map 2 toggle on/off
+id("check2").addEventListener("change", (e) => {
+  if (e.target.checked) {
+    map.setLayoutProperty('fires-pre-07', 'visibility', 'visible');
+  } else {
+    map.setLayoutProperty('fires-pre-07', 'visibility', 'none');
+  }
 });
 
 /*------------------------------Helper functions------------------------------*/
