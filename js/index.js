@@ -72,6 +72,8 @@ let pre_07 = {
   }
 }
 
+
+
 // Large fires data set
 map.on('load', () => {
   map.addSource('large-fires', {
@@ -93,6 +95,43 @@ map.on('load', () => {
   map.addLayer(large_fires);
   map.addLayer(pre_07);
 });
+
+//Range slider(selecting years)
+var sliderOptions = {
+  elm: 'slider-control',
+  layer: 'lg-fire-polies',
+  source: 'large-fires',
+  input: true,
+  controlWidth: '400px',
+  minProperty: 'STARTDATE',
+  maxProperty: 'PERIMDATE',
+  sliderMin: '1990-01-01T08:00:00Z',
+  sliderMax: '2020-01-01T00:00:00Z',
+  filterMin: '1990',
+  filterMax: '2019',
+  propertyType: 'iso8601',
+  rangeDescriptionFormat: 'shortDate',
+  descriptionPrefix: 'Date:'
+}
+
+var sliderOptions = {
+  elm: 'slider-control',
+  layer: 'fires-pre-07',
+  source: 'dnr-90-07',
+  input: true,
+  controlWidth: '400px',
+  minProperty: 'START_DT',
+  maxProperty: 'START_DT',
+  sliderMin: '1990-01-01T08:00:00Z',
+  sliderMax: '2020-01-01T00:00:00Z',
+  filterMin: '1990',
+  filterMax: '2019',
+  propertyType: 'iso8601',
+  rangeDescriptionFormat: 'shortDate',
+  descriptionPrefix: 'Date:'
+}
+
+map.addControl(new RangeSlider(sliderOptions, 'bottom-right'));
 
 //-------------------------------Map Toggles------------------------------------
 // Map 1 toggle on/off

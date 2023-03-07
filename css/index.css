@@ -75,6 +75,19 @@ h1 {
   height: 25%;
 }
 
+/* #legend {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 220px;
+  background: hsla(0, 0%, 100%, 0.192);
+  margin-right: 30px;
+  margin-bottom: 30px;
+  padding: 10px 10px 0px 10px;
+  border-radius: 3px;
+  text-align: justify;
+} */
+
 .story-head, .story-text {
   width: 100%;
 }
@@ -90,6 +103,18 @@ h1 {
   max-width: 120px;
   max-height: 180px;
   margin-left: 90%;
+}
+
+/*slider*/
+.slider-control-container {
+  padding: 5px;
+}
+
+.slider-control-range-display {
+  font-size: 18px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: 700;
 }
 
 /*------------------------------Custom Scrollbar------------------------------*/
