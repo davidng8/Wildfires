@@ -67,6 +67,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   overflow-y: auto;
+  overflow-x: 0;
 }
 
 #legend {
@@ -75,11 +76,20 @@ h1 {
 }
 
 .story-head, .story-text {
-
-
   width: 100%;
-  margin-left: 15px;
-  margin-right: 15px;
+}
+
+.story-sec {
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#map-toggle {
+  position: absolute;
+  max-width: 120px;
+  max-height: 180px;
+  margin-left: 90%;
 }
 
 /*------------------------------Custom Scrollbar------------------------------*/
