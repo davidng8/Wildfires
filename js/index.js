@@ -72,9 +72,9 @@ mapboxgl.accessToken =
 map = new mapboxgl.Map({
   container: 'map', // container ID
   style: 'mapbox://styles/mapbox/outdoors-v12', // style URL
-  center: [-120.34, 47.30], // starting position [lng, lat]
+  center: [-121.9, 47.70], // starting position [lng, lat]
   zoom: 6, // starting zoom
-  projection: 'albers'
+  projection: 'mercator'
 });
 
 // Construct Layers
