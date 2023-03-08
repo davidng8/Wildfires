@@ -6,7 +6,7 @@ Wildfire causes harm to buildings around them from the spread, and with wildfire
 ### Revised Design of the Project
 ![Revised Design](/imgs/design_revised.PNG)
 ## Link to Project
-[Project](https://davidng8.github.io/Wildfires/index.html)
+[WA Wildfires](https://davidng8.github.io/Wildfires/index.html)
 ## Target Audience
 Our target audience is people interested in environmental health, homeowners, construction planning, and environmental hazards.
 ## Functions
